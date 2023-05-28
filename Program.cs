@@ -88,8 +88,10 @@ class Program
 
                 if (variantString.IndexOf('0') == -1)
                     break;
+
             } while (true);
-            System.Console.WriteLine(variantString);
+
+            Console.WriteLine(variantString);
         }
 
         stopWatch.Stop();
