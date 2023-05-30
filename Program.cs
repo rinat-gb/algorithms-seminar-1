@@ -58,6 +58,8 @@ class Program
         } while (true);
 #endregion
 
+        // One dice can roll exactly as many times as it has faces,
+        // two dices can roll exactly twice as many as one does, and so on.
         int numberOfVariants = Convert.ToInt32(Math.Pow(n, k));
 
         Console.WriteLine(String.Format("При количестве игральных костей {0} и на каждой по {1} граней доступно {2} вариантов",
