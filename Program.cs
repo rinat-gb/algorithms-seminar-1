@@ -16,6 +16,7 @@ class Program
     {
         int k;
 
+#region get dices count
         do
         {
             Console.Write("Введите количество игральных костей: ");
@@ -33,9 +34,11 @@ class Program
             }
             break;
         } while (true);
+#endregion
 
         int n;
 
+#region get dice edges count
         do
         {
             Console.Write("Введите количество граней на игральных костях: ");
@@ -53,6 +56,7 @@ class Program
             }
             break;
         } while (true);
+#endregion
 
         int numberOfVariants = Convert.ToInt32(Math.Pow(n, k));
 
@@ -65,11 +69,13 @@ class Program
         string variantString = new string('1', k);
         int variantValue = 0;
 
+#region convert from string to integer with radix
         for (int i = k - 1; i >= 0; i--)
         {
             int tmp = "0123456789".IndexOf(variantString[i]) * Convert.ToInt32(Math.Pow(n + 1, k - (i + 1)));
             variantValue += tmp;
         }
+#endregion
 
         Stopwatch stopWatch = new Stopwatch();
         stopWatch.Start();
@@ -81,12 +87,15 @@ class Program
                 variantString = String.Empty;
                 int tmpCurrValue = variantValue;
 
+#region convert from integer to string with radix
                 while (tmpCurrValue > 0)
                 {
                     int idx = tmpCurrValue % (n + 1);
                     variantString = "0123456789"[idx] + variantString;
                     tmpCurrValue /= (n + 1);
                 }
+#endregion
+
                 ++variantValue;
 
                 if (variantString.IndexOf('0') == -1)
